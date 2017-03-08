@@ -6,7 +6,7 @@
 #    By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/19 17:36:18 by kshcherb          #+#    #+#              #
-#    Updated: 2017/03/06 19:34:37 by kshcherb         ###   ########.fr        #
+#    Updated: 2017/03/07 20:15:17 by kshcherb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,9 @@ LIB = libft/libft.a
 
 SRCS =		main.c											\
 			ft_init_wf.c									\
+			menu.c											\
+			ft_zaloop_hook.c								\
+			download_image.c								\
 
 BINS = $(SRCS:.c=.o)
 
