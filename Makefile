@@ -6,7 +6,7 @@
 #    By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/19 17:36:18 by kshcherb          #+#    #+#              #
-#    Updated: 2017/03/07 20:15:17 by kshcherb         ###   ########.fr        #
+#    Updated: 2017/03/14 17:56:52 by kshcherb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,10 @@ SRCS =		main.c											\
 			menu.c											\
 			ft_zaloop_hook.c								\
 			download_image.c								\
-
+			ft_readfile.c 									\
+			raycasting.c									\
+			ft_pix_put.c									\
+			
 BINS = $(SRCS:.c=.o)
 
 all: $(NAME)
