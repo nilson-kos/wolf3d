@@ -6,7 +6,7 @@
 /*   By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 17:41:00 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/03/14 17:12:38 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/03/15 19:39:07 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,32 @@
 t_wf		*ft_init_flag_menu(t_wf *wf)
 {
 	wf->flmenu.pos = 0;
+	wf->flmenu.menu = 0;
+	wf->read.i = 0;
+	wf->read.j = 0;
+	wf->read.c = 0;
+	wf->read.w = 0;
 	return (wf);
 }
 
 t_wf		*ft_init_flag(t_wf *wf)
 {
-	wf->flag.menu = 0;
+	wf->flag.fl_frw = 0;
+	wf->flag.fl_left = 0;
+	wf->flag.fl_rght = 0;
+	wf->flag.fl_back = 0;
 	return (wf);
 }
 
-t_wf		*ft_init_read(t_wf *wf)
+t_wf		*ft_init_game_resume(t_wf *wf)
 {
-	wf->read.i = 0;
-	wf->read.j = 0;
-	wf->read.c = 0;
-	wf->read.w = 0;
+	wf->game.drawstart = 0;
+	wf->game.drawend = 0;
+	wf->game.time = clock();
+	wf->game.oldtime = clock();
+	wf->game.frametime = 0;
+	wf->game.movespeed = 0;
+	wf->game.rotspeed = 0;
 	return (wf);
 }
 
@@ -60,9 +71,7 @@ t_wf		*ft_init_game(t_wf *wf)
 	wf->game.hit = 0;
 	wf->game.side = 0;
 	wf->game.lineheight = 0;
-	wf->game.drawstart = 0;
-	wf->game.drawend = 0;
-
+	wf = ft_init_game_resume(wf);
 	return (wf);
 }
 
@@ -79,7 +88,6 @@ t_wf		*ft_init_wf(void)
 	wf->img = mlx_new_image(wf->mlx, wf->w_size_x, wf->w_size_y);
 	wf = ft_init_flag(wf);
 	wf = ft_init_flag_menu(wf);
-	wf = ft_init_read(wf);
 	wf = ft_init_game(wf);
 	wf = download_image(wf);
 	return (wf);

@@ -6,7 +6,7 @@
 /*   By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 13:54:03 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/03/14 19:54:31 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/03/15 16:58:48 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void		raycasting(t_wf *wf)
 	int		x;
 
 	x = 0;
-	printf("strc = %d\n", wf->read.w);
+	//printf("strc = %d\n", wf->read.w);
 	while (x < wf->w_size_x)
 	{
-		printf("x=%d size_x=%d\n", x, wf->w_size_x);
+		//printf("x=%d size_x=%d\n", x, wf->w_size_x);
 		wf->game.camerax = 2 * x / (double)wf->w_size_x - 1;
 		wf->game.rayposx = wf->game.posx;
 		wf->game.rayposy = wf->game.posy;

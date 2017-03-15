@@ -6,7 +6,7 @@
 #    By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/19 17:36:18 by kshcherb          #+#    #+#              #
-#    Updated: 2017/03/14 17:56:52 by kshcherb         ###   ########.fr        #
+#    Updated: 2017/03/15 16:38:05 by kshcherb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,10 @@ SRCS =		main.c											\
 			ft_readfile.c 									\
 			raycasting.c									\
 			ft_pix_put.c									\
-			
+			ft_key_event.c									\
+			ft_buttons.c									\
+			speed_fps.c										\
+
 BINS = $(SRCS:.c=.o)
 
 all: $(NAME)

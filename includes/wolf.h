@@ -6,7 +6,7 @@
 /*   By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 15:54:08 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/03/14 17:47:48 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/03/15 21:46:56 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <fcntl.h>
+#include <time.h>
 #include "mlx.h"
 #include "../libft/libft.h"
 
@@ -29,11 +30,16 @@ typedef struct			s_menu
 typedef struct			s_flag_menu
 {
 	int					pos;
+	int					menu;
 }						t_flag_menu;
 
 typedef struct			s_flag
 {
-	int					menu;
+	int					fl_frw;
+	int					fl_left;
+	int					fl_rght;
+	int					fl_back;
+
 }						t_flag;
 
 typedef struct			s_read
@@ -76,7 +82,10 @@ typedef struct			s_game
 	int					drawstart;
 	int					drawend;
 	int					color;
-
+	double				frametime;
+	int					fps;
+	double				movespeed;
+	double				rotspeed;
 }						t_game;
 
 typedef struct			s_wf
@@ -90,10 +99,10 @@ typedef struct			s_wf
 	int					w_size_y;
 	int					count;
 	struct s_menu		*menu;
+	struct s_flag_menu	flmenu;
 	struct s_flag		flag;
 	struct s_read		read;
 	struct s_game		game;
-	struct s_flag_menu	flmenu;
 }						t_wf;
 
 char					**ft_readfile(t_wf *wf);
@@ -103,5 +112,13 @@ t_wf					*download_image(t_wf *wf);
 int						ft_zaloop_hook(t_wf *wf);
 void					raycasting(t_wf *wf);
 void					ft_draw_line(t_wf *wf, int x);
+int						button_release_game(int kcode, t_wf *wf);
+int						button_press_game(int kcode, t_wf *wf);
+int						button_release_menu(int kcode, t_wf *wf);
+t_wf					*calculate_speed_fps(t_wf *wf);
+void					move_forward(t_wf *wf);
+void					move_back(t_wf *wf);
+void					move_left(t_wf *wf);
+void					move_right(t_wf *wf);
 
 #endif
