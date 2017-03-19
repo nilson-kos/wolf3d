@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kshcherb <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/25 17:13:38 by kshcherb          #+#    #+#              #
-#    Updated: 2017/02/16 19:30:09 by kshcherb         ###   ########.fr        #
+#    Updated: 2017/03/16 18:51:47 by kshcherb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -O3 -Wall -Wextra -Werror
 SRCS = ft_strlen.c		\
 	   ft_strdup.c		\
 	   ft_strcpy.c		\

@@ -6,7 +6,7 @@
 /*   By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/07 15:28:20 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/03/15 21:45:37 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/03/17 16:22:43 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ int		ft_zaloop_hook(t_wf *wf)
 	}
 	else
 	{
-		//printf("GO?\n");
-		//mlx_put_image_to_window(wf->mlx, wf->win, wf->menu[2].img, 0, 0);
 		mlx_hook(wf->win, 2, 1, button_press_game, wf);
 		mlx_hook(wf->win, 3, 2, button_release_game, wf);
 		wf = calculate_speed_fps(wf);

@@ -6,7 +6,7 @@
 #    By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/19 17:36:18 by kshcherb          #+#    #+#              #
-#    Updated: 2017/03/15 16:38:05 by kshcherb         ###   ########.fr        #
+#    Updated: 2017/03/18 17:46:52 by kshcherb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ IDIR = includes/
 
 VPATH = src:includes
 
-FLAGS = -Wall -Wextra -Werror -I$(IDIR) -g
+FLAGS = -O3 -Wall -Wextra -Werror -I$(IDIR) -g
 
 MLX = -lmlx -framework AppKit -framework OpenGl
 

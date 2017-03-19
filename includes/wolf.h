@@ -6,7 +6,7 @@
 /*   By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 15:54:08 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/03/15 21:46:56 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/03/19 19:11:05 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,17 @@
 
 typedef struct			s_menu
 {
-	int					i;
-	int					j;
+	int					x;
+	int					y;
 	void				*img;
 }						t_menu;
+
+typedef struct			s_tex
+{
+	int					x;
+	int					y;
+	void				*img;
+}						t_tex;
 
 typedef struct			s_flag_menu
 {
@@ -86,6 +93,15 @@ typedef struct			s_game
 	int					fps;
 	double				movespeed;
 	double				rotspeed;
+	double				olddirx;
+	double				oldplanex;
+	int					texnum;
+	double				wallx;
+	int					texx;
+	int					texy;
+	int					x;
+	int					y;
+	int					d;
 }						t_game;
 
 typedef struct			s_wf
@@ -99,6 +115,7 @@ typedef struct			s_wf
 	int					w_size_y;
 	int					count;
 	struct s_menu		*menu;
+	struct s_tex		*tex;
 	struct s_flag_menu	flmenu;
 	struct s_flag		flag;
 	struct s_read		read;
@@ -111,6 +128,8 @@ void					ft_menu(t_wf *wf);
 t_wf					*download_image(t_wf *wf);
 int						ft_zaloop_hook(t_wf *wf);
 void					raycasting(t_wf *wf);
+int						ft_pix_get(t_wf *wf, int x, int y, int numtex);
+void					ft_pix_put(t_wf *wf, int x, int y, int rgb);
 void					ft_draw_line(t_wf *wf, int x);
 int						button_release_game(int kcode, t_wf *wf);
 int						button_press_game(int kcode, t_wf *wf);
@@ -120,5 +139,7 @@ void					move_forward(t_wf *wf);
 void					move_back(t_wf *wf);
 void					move_left(t_wf *wf);
 void					move_right(t_wf *wf);
+char					ft_chmo(t_wf *wf, int y, int x);
+t_wf					*ft_init_flag(t_wf *wf);
 
 #endif

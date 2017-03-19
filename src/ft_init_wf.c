@@ -6,7 +6,7 @@
 /*   By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 17:41:00 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/03/15 19:39:07 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/03/18 15:32:37 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,19 @@ t_wf		*ft_init_game_resume(t_wf *wf)
 	wf->game.frametime = 0;
 	wf->game.movespeed = 0;
 	wf->game.rotspeed = 0;
+	wf->game.olddirx = 0;
+	wf->game.oldplanex = 0;
+	wf->game.texnum = 0;
+	wf->game.wallx = 0;
+	wf->game.texx = 0;
+	wf->game.texy = 0;
 	return (wf);
 }
 
 t_wf		*ft_init_game(t_wf *wf)
 {
-	wf->game.posx = 22;
-	wf->game.posy = 12;
+	wf->game.posx = 2;
+	wf->game.posy = 2;
 	wf->game.dirx = -1;
 	wf->game.diry = 0;
 	wf->game.planex = 0;

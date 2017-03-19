@@ -6,7 +6,7 @@
 /*   By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 17:34:57 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/03/13 15:11:52 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/03/19 19:23:21 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ char		**ft_readfile(t_wf *wf)
 	mass = (char **)malloc(sizeof(char*) * (wf->count + 1));
 	while (get_next_line(wf->read.fd, &line) > 0)
 	{
-		//mb +1 ne nado
 		mass[wf->read.i] = ((char *)malloc(sizeof(char) * (wf->read.w + 1)));
 		while (line[wf->read.c] != '\0')
 		{
