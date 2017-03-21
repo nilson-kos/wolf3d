@@ -6,7 +6,7 @@
 /*   By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 16:05:51 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/03/17 16:07:09 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/03/21 20:19:24 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,21 @@
 int		button_press_game(int kcode, t_wf *wf)
 {
 	(kcode == 53) ? wf->flmenu.menu = 0 : 777;
-	(kcode == 126) ? wf->flag.fl_frw = 1 : 999;
-	(kcode == 125) ? wf->flag.fl_back = 1 : 888;
-	(kcode == 123) ? wf->flag.fl_left = 1 : 888;
-	(kcode == 124) ? wf->flag.fl_rght = 1 : 888;
+	(kcode == 14) ? action(wf) : 666;
+	(kcode == 13) ? wf->flag.fl_frw = 1 : 999;
+	(kcode == 1) ? wf->flag.fl_back = 1 : 888;
+	(kcode == 0) ? wf->flag.fl_left = 1 : 888;
+	(kcode == 2) ? wf->flag.fl_rght = 1 : 888;
 
 	return (0);
 }
 
 int		button_release_game(int kcode, t_wf *wf)
 {
-	(kcode == 126) ? wf->flag.fl_frw = 0 : 999;
-	(kcode == 125) ? wf->flag.fl_back = 0 : 888;
-	(kcode == 123) ? wf->flag.fl_left = 0 : 888;
-	(kcode == 124) ? wf->flag.fl_rght = 0 : 888;
+	(kcode == 13) ? wf->flag.fl_frw = 0 : 999;
+	(kcode == 1) ? wf->flag.fl_back = 0 : 888;
+	(kcode == 0) ? wf->flag.fl_left = 0 : 888;
+	(kcode == 2) ? wf->flag.fl_rght = 0 : 888;
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 13:54:03 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/03/19 19:37:09 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/03/20 18:01:01 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ void	create_texture(t_wf *wf, int numtex)
 	wf->game.y = wf->game.drawstart;
 	while (wf->game.y < wf->game.drawend)
 	{
-		wf->game.d = wf->game.y * 256 - wf->w_size_y * 128 +
-			wf->game.lineheight * 128;
+		wf->game.d = wf->game.y * 2 - wf->w_size_y +
+			wf->game.lineheight;
 		wf->game.texy = ((wf->game.d * wf->tex[numtex].y) /
-			wf->game.lineheight) / 256;
+			wf->game.lineheight) / 2;
 		wf->game.color = ft_pix_get(wf, wf->game.texx, wf->game.texy, numtex);
 		ft_pix_put(wf, wf->game.x, wf->game.y, wf->game.color);
 		wf->game.y++;
@@ -132,6 +132,7 @@ void		raycasting(t_wf *wf)
 		wf->game.texnum = wf->lvl1[wf->game.mapy][wf->game.mapx] - '1';
 		//wf->game.texnum = ft_chmo(wf, wf->game.mapy, wf->game.mapx) - '1';
 		create_texture(wf, wf->game.texnum);
+		draw_floors(wf);
 		wf->game.x++;
 	}
 	mlx_put_image_to_window(wf->mlx, wf->win, wf->img, 0, 0);

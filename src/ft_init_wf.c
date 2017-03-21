@@ -6,7 +6,7 @@
 /*   By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 17:41:00 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/03/18 15:32:37 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/03/20 16:03:49 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,11 @@ t_wf		*ft_init_game_resume(t_wf *wf)
 	wf->game.wallx = 0;
 	wf->game.texx = 0;
 	wf->game.texy = 0;
+	wf->game.floorxwall = 0;
+	wf->game.floorywall = 0;
+	wf->game.distwall = 0;
+	wf->game.distplayer = 0;
+//	wf->game.currentdist = 0;
 	return (wf);
 }
 

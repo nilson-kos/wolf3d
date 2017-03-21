@@ -6,7 +6,7 @@
 /*   By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 15:54:08 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/03/19 19:11:05 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/03/21 18:20:43 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,13 @@ typedef struct			s_game
 	int					x;
 	int					y;
 	int					d;
+	double				floorxwall;
+	double				floorywall;
+	double				distwall;
+	double				distplayer;
+	double				currentdist;
+	int					floor_tex_x;
+	int					floor_tex_y;
 }						t_game;
 
 typedef struct			s_wf
@@ -139,7 +146,9 @@ void					move_forward(t_wf *wf);
 void					move_back(t_wf *wf);
 void					move_left(t_wf *wf);
 void					move_right(t_wf *wf);
+void					action(t_wf *wf);
 char					ft_chmo(t_wf *wf, int y, int x);
 t_wf					*ft_init_flag(t_wf *wf);
+void					draw_floors(t_wf *wf);
 
 #endif
