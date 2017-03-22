@@ -6,7 +6,7 @@
 /*   By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/07 15:28:20 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/03/20 13:24:55 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/03/22 20:52:26 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,26 @@ void	ft_check_flag(t_wf *wf)
 
 int		ft_zaloop_hook(t_wf *wf)
 {
+	mlx_hook(wf->win, 17, 1L << 17, exit_x, wf);
 	if (wf->flmenu.menu == 0)
 	{
 		ft_menu(wf);
 		mlx_hook(wf->win, 3, 2, button_release_menu, wf);
 	}
-	else
+	else if (wf->flmenu.menu == 1)
 	{
 		mlx_hook(wf->win, 2, 1, button_press_game, wf);
 		mlx_hook(wf->win, 3, 2, button_release_game, wf);
-		//wf = calculate_speed_fps(wf);
 		ft_check_flag(wf);
 		mlx_destroy_image(wf->mlx, wf->img);
 		wf->img = mlx_new_image(wf->mlx, wf->w_size_x, wf->w_size_y);
 		raycasting(wf);
 		wf = calculate_speed_fps(wf);
+	}
+	else if (wf->flmenu.menu == 2)
+	{
+		ft_menu2(wf);
+		mlx_hook(wf->win, 3, 2, button_release_menu2, wf);
 	}
 	return (0);
 }

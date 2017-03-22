@@ -6,7 +6,7 @@
 /*   By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 15:54:08 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/03/21 18:20:43 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/03/22 20:47:00 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,7 @@ typedef struct			s_wf
 char					**ft_readfile(t_wf *wf);
 t_wf					*ft_init_wf(void);
 void					ft_menu(t_wf *wf);
+void					ft_menu2(t_wf *wf);
 t_wf					*download_image(t_wf *wf);
 int						ft_zaloop_hook(t_wf *wf);
 void					raycasting(t_wf *wf);
@@ -139,6 +140,7 @@ int						ft_pix_get(t_wf *wf, int x, int y, int numtex);
 void					ft_pix_put(t_wf *wf, int x, int y, int rgb);
 void					ft_draw_line(t_wf *wf, int x);
 int						button_release_game(int kcode, t_wf *wf);
+int						button_release_menu2(int kcode, t_wf *wf);
 int						button_press_game(int kcode, t_wf *wf);
 int						button_release_menu(int kcode, t_wf *wf);
 t_wf					*calculate_speed_fps(t_wf *wf);
@@ -150,5 +152,6 @@ void					action(t_wf *wf);
 char					ft_chmo(t_wf *wf, int y, int x);
 t_wf					*ft_init_flag(t_wf *wf);
 void					draw_floors(t_wf *wf);
+int						exit_x(void *par);
 
 #endif

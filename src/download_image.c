@@ -6,7 +6,7 @@
 /*   By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/07 20:12:29 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/03/21 18:12:48 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/03/22 20:55:19 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,21 @@
 
 t_wf	*download_menu(t_wf *wf)
 {
-	wf->menu = (t_menu *)malloc(sizeof(t_menu) * 2);
+	wf->menu = (t_menu *)malloc(sizeof(t_menu) * 7);
 	wf->menu[0].img = mlx_xpm_file_to_image(wf->mlx,
-		"img/menu1/newgamemenu.XPM", &wf->menu[0].x, &wf->menu[0].y);
-	if (wf->menu[0].img == 0)
-		perror("img/menu1/newgamemenu.XPM");
+			"img/menu1/menu1_1.xpm", &wf->menu[0].x, &wf->menu[0].y);
 	wf->menu[1].img = mlx_xpm_file_to_image(wf->mlx,
-			"img/menu1/quitmenu.XPM", &wf->menu[1].x, &wf->menu[1].y);
-	if (wf->menu[1].img == 0)
-		perror("img/menu1/quitmenu.XPM");
-	//printf("i = %d, j = %d\n",wf->menu[1].x, wf->menu[1].y);
+			"img/menu1/menu1_2.xpm", &wf->menu[1].x, &wf->menu[1].y);
+	wf->menu[2].img = mlx_xpm_file_to_image(wf->mlx,
+			"img/menu1/menu1_3.xpm", &wf->menu[2].x, &wf->menu[2].y);
+	wf->menu[3].img = mlx_xpm_file_to_image(wf->mlx,
+			"img/menu2/menu2-1.XPM", &wf->menu[3].x, &wf->menu[3].y);
+	wf->menu[4].img = mlx_xpm_file_to_image(wf->mlx,
+			"img/menu2/menu2-2.XPM", &wf->menu[4].x, &wf->menu[4].y);
+	wf->menu[5].img = mlx_xpm_file_to_image(wf->mlx,
+			"img/menu2/menu2-3.XPM", &wf->menu[5].x, &wf->menu[5].y);
+	wf->menu[6].img = mlx_xpm_file_to_image(wf->mlx,
+			"img/menu2/menu2-4.XPM", &wf->menu[6].x, &wf->menu[6].y);
 	return (wf);
 }
 
