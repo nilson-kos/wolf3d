@@ -6,11 +6,32 @@
 /*   By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/21 18:18:13 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/03/22 20:14:05 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/03/23 19:52:49 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf.h"
+
+t_wf	*restart_game(t_wf *wf)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	wf = ft_init_game(wf);
+	while (wf->tmp1[i] != NULL)
+	{
+		while (wf->tmp1[i][j] != '\0')
+		{
+			wf->lvl1[i][j] = wf->tmp1[i][j];
+			j++;
+		}
+		j = 0;
+		i++;
+	}
+	return (wf);
+}
 
 void	ft_pix_put(t_wf *wf, int x, int y, int rgb)
 {

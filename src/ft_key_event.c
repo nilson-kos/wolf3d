@@ -6,7 +6,7 @@
 /*   By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 16:05:51 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/03/22 20:47:35 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/03/23 21:47:35 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ int		button_release_menu2(int kcode, t_wf *wf)
 		wf = ft_init_flag(wf);
 		wf->flmenu.menu = 1;
 	}
+	if (kcode == 36 && wf->flmenu.pos == 1)
+	{
+		wf->flmenu.pos = 0;
+		wf->flmenu.menu = 3;
+	}
 	(kcode == 125) ? wf->flmenu.pos += 1 : 666;
 	(kcode == 126) ? wf->flmenu.pos -= 1 : 666;
 	(wf->flmenu.pos == -1) ? wf->flmenu.pos = 3 : 666;
@@ -28,7 +33,38 @@ int		button_release_menu2(int kcode, t_wf *wf)
 	return (0);
 }
 
-int		button_press_game(int kcode, t_wf *wf)
+int		button_release_level(int kcode, t_wf *wf)
+{
+	if (kcode == 36 && wf->flmenu.pos == 2)
+		wf->flmenu.menu = 0;
+	if (kcode == 36 && wf->flmenu.pos == 0)
+	{
+		wf = ft_init_game(wf);
+		wf->flmenu.pos = 0;
+		wf = restart_game(wf);
+		wf->game.posx = 4;
+		wf->game.posy = 14;
+		wf = ft_init_flag(wf);
+		wf->flmenu.menu = 1;
+	}
+	if (kcode == 36 && wf->flmenu.pos == 1)
+	{
+		wf = ft_init_game(wf);
+		wf->flmenu.pos = 0;
+		wf = restart_game(wf);
+		wf->game.posx = 2;
+		wf->game.posy = 2;
+		wf = ft_init_flag(wf);
+		wf->flmenu.menu = 1;
+	}
+	(kcode == 125) ? wf->flmenu.pos += 1 : 666;
+	(kcode == 126) ? wf->flmenu.pos -= 1 : 666;
+	(wf->flmenu.pos == -1) ? wf->flmenu.pos = 1 : 666;
+	(wf->flmenu.pos == 2) ? wf->flmenu.pos = 0 : 666;
+	return (0);
+}
+
+int		button_press_suka(int kcode, t_wf *wf)
 {
 	(kcode == 53) ? wf->flmenu.menu = 2 : 777;
 	(kcode == 14) ? action(wf) : 666;
@@ -55,8 +91,9 @@ int		button_release_menu(int kcode, t_wf *wf)
 		exit(0);
 	if (kcode == 36 && wf->flmenu.pos == 0)
 	{
-		wf = ft_init_flag(wf);
-		wf->flmenu.menu = 1;
+		//wf = ft_init_flag(wf);
+		wf->flmenu.pos = 0;
+		wf->flmenu.menu = 3;
 	}
 	(kcode == 125) ? wf->flmenu.pos += 1 : 666;
 	(kcode == 126) ? wf->flmenu.pos -= 1 : 666;

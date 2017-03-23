@@ -6,7 +6,7 @@
 /*   By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/07 15:28:20 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/03/22 20:52:26 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/03/23 21:42:24 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	ft_check_flag(t_wf *wf)
 	(wf->flag.fl_back == 1) ? move_back(wf) : 777;
 	(wf->flag.fl_left == 1) ? move_left(wf) : 777;
 	(wf->flag.fl_rght == 1) ? move_right(wf) : 777;
-
 }
 
 int		ft_zaloop_hook(t_wf *wf)
@@ -29,9 +28,14 @@ int		ft_zaloop_hook(t_wf *wf)
 		ft_menu(wf);
 		mlx_hook(wf->win, 3, 2, button_release_menu, wf);
 	}
+	else if (wf->flmenu.menu == 2)
+	{
+		ft_menu2(wf);
+		mlx_hook(wf->win, 3, 2, button_release_menu2, wf);
+	}
 	else if (wf->flmenu.menu == 1)
 	{
-		mlx_hook(wf->win, 2, 1, button_press_game, wf);
+		mlx_hook(wf->win, 2, 1, button_press_suka, wf);
 		mlx_hook(wf->win, 3, 2, button_release_game, wf);
 		ft_check_flag(wf);
 		mlx_destroy_image(wf->mlx, wf->img);
@@ -39,10 +43,10 @@ int		ft_zaloop_hook(t_wf *wf)
 		raycasting(wf);
 		wf = calculate_speed_fps(wf);
 	}
-	else if (wf->flmenu.menu == 2)
+	else if (wf->flmenu.menu == 3)
 	{
-		ft_menu2(wf);
-		mlx_hook(wf->win, 3, 2, button_release_menu2, wf);
+		ft_menu_lvl(wf);
+		mlx_hook(wf->win, 3, 2, button_release_level, wf);
 	}
 	return (0);
 }

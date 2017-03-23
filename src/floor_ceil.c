@@ -6,7 +6,7 @@
 /*   By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 13:38:56 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/03/21 17:14:58 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/03/23 20:09:32 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	pixel_on_floor(t_wf *wf, int y)
 {
 	int	color;
 
-	color = ft_pix_get(wf, wf->game.floor_tex_x, wf->game.floor_tex_y, 2);
+	color = ft_pix_get(wf, wf->game.floor_tex_x, wf->game.floor_tex_y, 5);
 	ft_pix_put(wf, wf->game.x, y, color);
-	color = ft_pix_get(wf, wf->game.floor_tex_x, wf->game.floor_tex_y, 3);
+	color = ft_pix_get(wf, wf->game.floor_tex_x, wf->game.floor_tex_y, 2);
 	ft_pix_put(wf, wf->game.x, wf->w_size_y - y, color);
 }
 

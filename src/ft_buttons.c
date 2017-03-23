@@ -6,7 +6,7 @@
 /*   By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 16:20:33 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/03/21 20:28:25 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/03/23 16:12:32 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	action(t_wf *wf)
 	else if (ft_chmo(wf,(int)(wf->game.posy + wf->game.diry), (int)(wf->game.posx + wf->game.dirx)) == '0')
 		wf->lvl1[(int)(wf->game.posy + wf->game.diry)][(int)(wf->game.posx + wf->game.dirx)] = '5';
 	else if (ft_chmo(wf,(int)(wf->game.posy + wf->game.diry), (int)(wf->game.posx + wf->game.dirx)) == '4')
-		wf->flmenu.menu = 0;
+		wf->flmenu.menu = 3;
 
 }
 
