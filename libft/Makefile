@@ -6,7 +6,7 @@
 #    By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/25 17:13:38 by kshcherb          #+#    #+#              #
-#    Updated: 2017/03/16 18:51:47 by kshcherb         ###   ########.fr        #
+#    Updated: 2017/03/25 16:13:58 by kshcherb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,6 +72,7 @@ SRCS = ft_strlen.c		\
 	   ft_lstmap.c		\
 	   get_next_line.c	\
 	   ft_atoi_base.c	\
+	   gnl_norme.c		\
 
 
 BINS = $(SRCS:.c=.o)

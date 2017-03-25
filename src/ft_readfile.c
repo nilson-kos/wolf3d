@@ -6,7 +6,7 @@
 /*   By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 17:34:57 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/03/19 19:23:21 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/03/25 15:52:42 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void		print_error(void)
 {
-
 	ft_putstr("can not open file\n");
 	exit(0);
 }
@@ -33,9 +32,17 @@ void		ft_count(t_wf *wf)
 				wf->read.w++;
 		}
 		wf->count++;
-		free(line);
+		ft_strdel(&line);
 	}
+	ft_strdel(&line);
 	close(wf->read.fd);
+}
+
+void		gopa_norma(t_wf *wf)
+{
+	wf->read.j = 0;
+	wf->read.c = 0;
+	wf->read.i++;
 }
 
 char		**ft_readfile(t_wf *wf)
@@ -57,11 +64,10 @@ char		**ft_readfile(t_wf *wf)
 			wf->read.j++;
 		}
 		mass[wf->read.i][wf->read.j] = '\0';
-		wf->read.j = 0;
-		wf->read.c = 0;
-		wf->read.i++;
-		free(line);
+		gopa_norma(wf);
+		ft_strdel(&line);
 	}
+	ft_strdel(&line);
 	mass[wf->count] = 0;
 	close(wf->read.fd);
 	return (mass);

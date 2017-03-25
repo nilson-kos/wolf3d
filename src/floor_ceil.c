@@ -6,13 +6,13 @@
 /*   By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 13:38:56 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/03/23 20:09:32 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/03/25 15:42:12 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf.h"
 
-void	pixel_on_floor(t_wf *wf, int y)
+void		pixel_on_floor(t_wf *wf, int y)
 {
 	int	color;
 
@@ -22,34 +22,34 @@ void	pixel_on_floor(t_wf *wf, int y)
 	ft_pix_put(wf, wf->game.x, wf->w_size_y - y, color);
 }
 
-void	draw_floor_res(t_wf *wf)
+void		draw_floor_res(t_wf *wf)
 {
-	int	y;
-	double cur_dist;
-	double cur_fl_x;
-	double cur_fl_y;
-	double weight;
+	int		y;
+	double	cur_dist;
+	double	cur_flx;
+	double	cur_fly;
+	double	weight;
 
 	y = wf->game.drawend + 1;
 	cur_dist = 0;
-	cur_fl_x = 0;
-	cur_fl_y = 0;
+	cur_flx = 0;
+	cur_fly = 0;
 	weight = 0;
 	while (y < wf->w_size_y)
 	{
 		cur_dist = wf->w_size_y / (2.0 * y - wf->w_size_y);
-		weight = (cur_dist - wf->game.distplayer) / (wf->game.distwall - wf->game.distplayer);
-		cur_fl_x = weight * wf->game.floorxwall + (1.0 - weight) * wf->game.posx;
-		cur_fl_y = weight * wf->game.floorywall + (1.0 - weight) * wf->game.posy;
-		wf->game.floor_tex_x = (int)(cur_fl_x * wf->tex[2].x) % wf->tex[2].x;
-		wf->game.floor_tex_y = (int)(cur_fl_y * wf->tex[2].y) % wf->tex[2].y;
+		weight = (cur_dist - wf->game.distplayer) /
+				(wf->game.distwall - wf->game.distplayer);
+		cur_flx = weight * wf->game.floorxwall + (1.0 - weight) * wf->game.posx;
+		cur_fly = weight * wf->game.floorywall + (1.0 - weight) * wf->game.posy;
+		wf->game.floor_tex_x = (int)(cur_flx * wf->tex[2].x) % wf->tex[2].x;
+		wf->game.floor_tex_y = (int)(cur_fly * wf->tex[2].y) % wf->tex[2].y;
 		pixel_on_floor(wf, y);
 		y++;
 	}
-
 }
 
-void	draw_floors(t_wf *wf)
+void		draw_floors(t_wf *wf)
 {
 	if (wf->game.side == 0 && wf->game.raydirx > 0)
 	{

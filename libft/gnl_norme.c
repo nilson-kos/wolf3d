@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   gnl_norme.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/06 15:55:39 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/03/25 15:38:42 by kshcherb         ###   ########.fr       */
+/*   Created: 2017/03/25 16:13:41 by kshcherb          #+#    #+#             */
+/*   Updated: 2017/03/25 16:19:15 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "wolf.h"
+#include "libft.h"
 
-int			main(void)
+void	for_norm(char *buf, char **line, t_lion *lst)
 {
-	t_wf	*wf;
+	char	*n;
+	char	*zap;
 
-	wf = ft_init_wf();
-	wf->lvl1 = ft_readfile(wf);
-	wf->count = 0;
-	wf = ft_init_flag_menu(wf);
-	wf->tmp1 = ft_readfile(wf);
-	mlx_loop_hook(wf->mlx, ft_zaloop_hook, wf);
-	mlx_loop(wf->mlx);
-	return (0);
+	n = ft_strchr(buf, '\n');
+	zap = ft_strsub(buf, 0, n - buf);
+	*line = join_free(*line, zap);
+	ft_strdel(&(lst->s));
+	lst->s = ft_strdup(buf + (n - buf) + 1);
+	ft_strdel(&zap);
+	ft_strdel(&buf);
 }

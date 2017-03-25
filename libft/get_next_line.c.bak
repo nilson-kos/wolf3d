@@ -6,7 +6,7 @@
 /*   By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/19 16:37:50 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/03/25 16:22:38 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/03/25 14:03:10 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,14 @@ int						from_static(char **line, t_lion *lst)
 	{
 		zap = ft_strsub(lst->s, 0, n - lst->s);
 		*line = join_free(*line, zap);
-		ft_strdel(&zap);
-		zap = lst->s;
 		lst->s = ft_strdup(lst->s + (n - lst->s) + 1);
-		ft_strdel(&zap);
 		return (1);
 	}
 	else
 	{
 		*line = join_free(*line, lst->s);
-		ft_strdel(&(lst->s));
+		free(lst->s);
+		lst->s = NULL;
 	}
 	return (0);
 }
@@ -91,6 +89,7 @@ int						from_file(char **line, t_lion *lst)
 	int					res;
 	char				*n;
 	char				*buf;
+	char				*zap;
 
 	buf = (char *)(malloc(sizeof(char) * (BUFF_SIZE + 1)));
 	while ((res = read(lst->fd, buf, BUFF_SIZE)))
@@ -100,18 +99,16 @@ int						from_file(char **line, t_lion *lst)
 		buf[res] = '\0';
 		if ((n = ft_strchr(buf, '\n')))
 		{
-			for_norm(buf, line, lst);
+			zap = ft_strsub(buf, 0, n - buf);
+			*line = join_free(*line, zap);
+			lst->s = ft_strdup(buf + (n - buf) + 1);
 			return (1);
 		}
 		else
 			*line = join_free(*line, buf);
 	}
 	if (**line == '\0' && res == 0)
-	{
-		ft_strdel(&buf);
 		return (0);
-	}
-	ft_strdel(&buf);
 	return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/13 13:54:03 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/03/20 18:01:01 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/03/25 15:59:19 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ void	create_texture(t_wf *wf, int numtex)
 	else
 		wf->game.wallx = wf->game.rayposx + wf->game.perpwalldist *
 				wf->game.raydirx;
-	wf->game.wallx -=floor((wf->game.wallx));
-	//double(texwidth)
+	wf->game.wallx -= floor((wf->game.wallx));
 	wf->game.texx = (int)(wf->game.wallx * wf->tex[numtex].x);
 	if (wf->game.side == 0 && wf->game.raydirx > 0)
 		wf->game.texx = wf->tex[numtex].x - wf->game.texx - 1;
@@ -40,7 +39,7 @@ void	create_texture(t_wf *wf, int numtex)
 	}
 }
 
-void		side_dist(t_wf *wf)
+void	side_dist(t_wf *wf)
 {
 	if (wf->game.raydirx < 0)
 	{
@@ -68,7 +67,7 @@ void		side_dist(t_wf *wf)
 	}
 }
 
-void		hit(t_wf *wf)
+void	hit(t_wf *wf)
 {
 	while (wf->game.hit == 0)
 	{
@@ -95,8 +94,7 @@ void		hit(t_wf *wf)
 			(1 - wf->game.stepy) / 2) / wf->game.raydiry;
 }
 
-
-void		last(t_wf *wf)
+void	last(t_wf *wf)
 {
 	wf->game.lineheight = (int)(wf->w_size_y / wf->game.perpwalldist);
 	wf->game.drawstart = -wf->game.lineheight / 2 + wf->w_size_y / 2;
@@ -107,14 +105,14 @@ void		last(t_wf *wf)
 		wf->game.drawend = wf->w_size_y - 1;
 }
 
-void		raycasting(t_wf *wf)
+void	raycasting(t_wf *wf)
 {
-	wf->game.x = 0;
+	wf->game.x = -1;
 	wf->game.y = 0;
 	wf->game.d = 0;
-	while (wf->game.x < wf->w_size_x)
+	while (++wf->game.x < wf->w_size_x)
 	{
-		wf->game.camerax = 2 * 	wf->game.x / (double)wf->w_size_x - 1;
+		wf->game.camerax = 2 * wf->game.x / (double)wf->w_size_x - 1;
 		wf->game.rayposx = wf->game.posx;
 		wf->game.rayposy = wf->game.posy;
 		wf->game.raydirx = wf->game.dirx + wf->game.planex * wf->game.camerax;
@@ -130,10 +128,8 @@ void		raycasting(t_wf *wf)
 		hit(wf);
 		last(wf);
 		wf->game.texnum = wf->lvl1[wf->game.mapy][wf->game.mapx] - '1';
-		//wf->game.texnum = ft_chmo(wf, wf->game.mapy, wf->game.mapx) - '1';
 		create_texture(wf, wf->game.texnum);
 		draw_floors(wf);
-		wf->game.x++;
 	}
 	mlx_put_image_to_window(wf->mlx, wf->win, wf->img, 0, 0);
 }

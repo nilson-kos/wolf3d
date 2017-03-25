@@ -6,19 +6,19 @@
 /*   By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 15:54:08 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/03/23 18:42:20 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/03/25 16:06:01 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WOLF_H
 # define WOLF_H
 
-#include <math.h>
-#include <stdio.h>
-#include <fcntl.h>
-#include <time.h>
-#include "mlx.h"
-#include "../libft/libft.h"
+# include <math.h>
+# include <stdio.h>
+# include <fcntl.h>
+# include <time.h>
+# include "mlx.h"
+# include "../libft/libft.h"
 
 typedef struct			s_menu
 {
@@ -46,7 +46,7 @@ typedef struct			s_flag
 	int					fl_left;
 	int					fl_rght;
 	int					fl_back;
-
+	int					shift;
 }						t_flag;
 
 typedef struct			s_read
@@ -108,6 +108,7 @@ typedef struct			s_game
 	double				currentdist;
 	int					floor_tex_x;
 	int					floor_tex_y;
+	int					shift;
 }						t_game;
 
 typedef struct			s_wf
@@ -145,6 +146,7 @@ int						button_release_menu2(int kcode, t_wf *wf);
 int						button_press_suka(int kcode, t_wf *wf);
 int						button_release_menu(int kcode, t_wf *wf);
 int						button_release_level(int kcode, t_wf *wf);
+int						button_release_control(int kcode, t_wf *wf);
 t_wf					*calculate_speed_fps(t_wf *wf);
 void					move_forward(t_wf *wf);
 void					move_back(t_wf *wf);
@@ -157,5 +159,6 @@ t_wf					*ft_init_flag_menu(t_wf *wf);
 void					draw_floors(t_wf *wf);
 int						exit_x(void *par);
 t_wf					*restart_game(t_wf *wf);
+void					new_game_norma(t_wf *wf);
 
 #endif

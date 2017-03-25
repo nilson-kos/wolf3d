@@ -6,7 +6,7 @@
 #    By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/19 17:36:18 by kshcherb          #+#    #+#              #
-#    Updated: 2017/03/23 15:04:24 by kshcherb         ###   ########.fr        #
+#    Updated: 2017/03/25 13:46:52 by kshcherb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRCS =		main.c											\
 			ft_buttons.c									\
 			speed_fps.c										\
 			floor_ceil.c									\
+			ft_key_event2.c 								\
 
 BINS = $(SRCS:.c=.o)
 

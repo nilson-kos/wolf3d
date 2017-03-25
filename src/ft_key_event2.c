@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_key_event2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/06 15:55:39 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/03/25 15:38:42 by kshcherb         ###   ########.fr       */
+/*   Created: 2017/03/25 13:44:07 by kshcherb          #+#    #+#             */
+/*   Updated: 2017/03/25 16:03:16 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf.h"
 
-int			main(void)
+int		button_release_control(int kcode, t_wf *wf)
 {
-	t_wf	*wf;
-
-	wf = ft_init_wf();
-	wf->lvl1 = ft_readfile(wf);
-	wf->count = 0;
-	wf = ft_init_flag_menu(wf);
-	wf->tmp1 = ft_readfile(wf);
-	mlx_loop_hook(wf->mlx, ft_zaloop_hook, wf);
-	mlx_loop(wf->mlx);
+	(kcode == 53) ? wf->flmenu.menu = 0 : 777;
 	return (0);
+}
+
+void	new_game_norma(t_wf *wf)
+{
+	wf = ft_init_game(wf);
+	wf->flmenu.pos = 0;
+	wf = restart_game(wf);
+	wf->game.posx = 2;
+	wf->game.posy = 2;
+	wf = ft_init_flag(wf);
+	wf->flmenu.menu = 1;
 }

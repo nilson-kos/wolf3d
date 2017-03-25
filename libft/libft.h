@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kshcherb <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kshcherb <kshcherb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 19:22:57 by kshcherb          #+#    #+#             */
-/*   Updated: 2017/02/19 14:14:59 by kshcherb         ###   ########.fr       */
+/*   Updated: 2017/03/25 16:19:50 by kshcherb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,6 @@ t_list				*ft_list_last(t_list *begin_list);
 void				ft_list_merge(t_list **begin_list1, t_list *begin_list2);
 void				ft_list_push_back(t_list **begin_list, void *data);
 void				ft_list_reverse(t_list **begin_list);
+void				for_norm(char *buf, char **line, t_lion *lst);
+char				*join_free(char *s1, char *s2);
 #endif
